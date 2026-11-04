@@ -55,7 +55,7 @@ def ask_spark(failed):
     prompt = (
         "Image satellite Sentinel-2 (couleurs naturelles) d'une zone agricole irriguée du Sénégal. Propose au plus 8 groupes "
         "nominaux ANGLAIS concrets, de 1 à 3 mots, désignant des types de surface bien distincts et visibles, adaptés à un "
-        "modèle de segmentation (par exemple « green field », « river »). Réponds uniquement par un tableau JSON de chaînes."
+        "modèle de segmentation (par exemple « green field », « river »). Parmi eux, au moins trois doivent viser les cultures irriguées (parcelles rectangulaires, champs inondés ou verts, canaux d'irrigation), car c'est ce qui nous intéresse. Réponds uniquement par un tableau JSON de chaînes."
     )
     if failed:
         prompt += (" Le modèle de segmentation n'a RIEN renvoyé pour : " + ", ".join(failed) +

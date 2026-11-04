@@ -44,7 +44,7 @@ Protocol and numbers: [`data/results/README.md`](../data/results/README.md).
 
 ## SAM 3.1
 
-SAM is very sensitive to wording. In the latest run Muse Spark proposed 21 concepts over 3 rounds and SAM returned a mask for 3 ("yellow river", "yellow creek", "winding creek", about 685 to 798 ha, 80 to 92 % on the WorldCover permanent-water class). Every field, crop, wetland and pond concept returned nothing in that run (an earlier run matched "green wetland" and "brown cropland"; results vary between runs). **No rice-parcel mask was obtained**, and no yield, area or production figure depends on SAM.
+SAM is very sensitive to wording. In the latest run (the prompt asks Spark for at least three irrigated-crop concepts) Muse Spark proposed 23 concepts over 3 rounds and SAM returned a mask for 3: "yellow water" and "yellow stream" (about 780 to 800 ha, 80 % on the WorldCover permanent-water class) and "green irrigated field", a single 10,891 ha blob (47 % of the scene) of which 70 % falls on WorldCover herbaceous wetland and 23 % on cropland; it covers 36 % of the cropland class and 71 % of the wetland class. That is the whole green belt, not parcels: wetland and cropland cannot be told apart, which is the very ambiguity noted above. "rectangular field", "crop plots", "green paddy", "irrigation canal" and the other crop concepts returned nothing. Earlier runs gave other matches ("green wetland", "brown cropland", river names): results vary between runs. **No rice-parcel mask was obtained**, and no yield, area or production figure depends on SAM.
 
 ## Scope
 

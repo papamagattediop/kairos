@@ -28,7 +28,7 @@ l'événement (27 octobre au 4 novembre) : le dire explicitement, une fois, au d
 | 0:50 – 1:25 | Panneau agent, bouton « Rendement du riz par département », clic | "Now the agent. I ask Muse Spark to compare Kolda and Dagana and say how far to trust it. Spark chooses its tools; the code returns the numbers. Every number in the answer must come from a tool or from my question, or the answer is flagged. And it tells us what we found: this is a department average, not a model forecast, and rainfall gives only a weak, fragile gain." |
 | 1:25 – 1:50 | Panneau d'extraction, extrait fictif, clic | "Muse Spark can also read a source. It proposes each balance term with a quote; the code re-reads the number and unit in that quote. Stock change was not published, so the balance is refused. We never replace a missing term with zero." |
 | 1:50 – 2:20 | Panneau « Données officielles » : courbe, fourchette, tableau du test | "For national imports, we tested five forecasting models, fifty-three times, with a rule fixed in advance. None beats simply repeating last year. So KAIROS publishes no forecast; it publishes a reference range around the last value and says how often such ranges held. We even withdrew our first forecast when a longer series contradicted it." |
-| 2:20 – 2:45 | Panneau « Muse Spark propose · SAM 3.1 segmente · le code mesure » : cocher « yellow river » | "On the satellite image, Muse Spark proposes what to segment, SAM 3.1 returns masks, and when SAM finds nothing Spark reformulates. Out of twenty-one concepts, SAM matched three, all river names; the code shows ninety-two percent of the first mask falls on WorldCover permanent water. No rice-parcel mask, so no figure depends on it, and we say so." |
+| 2:20 – 2:45 | Panneau « Muse Spark propose · SAM 3.1 segmente · le code mesure » : cocher « green irrigated field » | "On the satellite image, Muse Spark proposes what to segment, SAM 3.1 returns masks, and when SAM finds nothing Spark reformulates. Out of twenty-three concepts, SAM matched three. The code shows its green-field mask is a single belt of eleven thousand hectares, mostly classed wetland, not parcels. No rice-parcel mask, so no figure depends on it, and we say so." |
 | 2:45 – 3:00 | Page entière | "A satellite vegetation test was inconclusive, and we report it as such. KAIROS: Meta models read, code calculates, and the system refuses when it should. Thank you." |
 
 Durée : si le tout dépasse 3 minutes, couper d'abord l'extraction (1:25 – 1:50), puis raccourcir la partie FAOSTAT.
@@ -64,7 +64,7 @@ examined.
   agent over six tools (product registry, balance calculation, analysis of net imports, department rice yield, ranking, verified
   extraction).
 - Muse Spark vision + SAM 3.1: Spark proposes concepts from a Sentinel-2 image and reformulates when SAM
-  returns nothing (3 rounds, 21 concepts, 3 matches, all river names); masks decoded with the official
+  returns nothing (3 rounds, 23 concepts, 3 matches: two river names and one coarse green belt); masks decoded with the official
   parser, areas and WorldCover cross-checks computed by code. Shown as experimental.
 - Design choice: the model never produces a displayed figure; it reads, routes and explains.
 

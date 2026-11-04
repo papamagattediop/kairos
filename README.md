@@ -46,7 +46,7 @@ A model never produces a displayed number. If the data is insufficient, the answ
 
 - Yield estimate: out-of-sample mean error **17.4 %** over 163 leave-one-year-out cells (7.7 % in the irrigated north, 23 cells; 19.1 % in the rain-fed south, 140 cells).
 - Rainfall (CHIRPS) gain is about 3 % in the south and fragile; MODIS NDVI was inconclusive.
-- SAM matched 3 of 21 concepts, all river names. **No rice-parcel mask**, and no figure depends on SAM.
+- SAM matched 3 of 23 concepts: two river names and one coarse "green irrigated field" mask (10,891 ha, 47 % of the scene; 70 % of it falls on WorldCover wetland, 23 % on cropland). **No rice-parcel mask**, and no figure depends on SAM.
 
 Full list of negative results and caveats: [docs/LIMITATIONS.md](docs/LIMITATIONS.md).
 

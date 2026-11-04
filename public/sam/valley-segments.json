@@ -13,198 +13,192 @@
   1024
  ],
  "concepts": [
-  "muddy river",
-  "plowed field",
-  "green field",
-  "wetland",
-  "bare sand",
-  "pond",
-  "narrow stream",
-  "yellow river",
-  "brown farmland",
+  "rectangular field",
+  "green irrigated field",
+  "irrigation canal",
+  "river",
+  "green marsh",
+  "sandy island",
+  "bare soil",
+  "dark pond",
+  "brown field",
+  "crop plots",
+  "water channel",
+  "yellow water",
   "green vegetation",
-  "white dune",
-  "dark water",
-  "pale soil",
-  "yellow creek",
-  "brown plots",
-  "green swamp",
-  "yellow sand",
-  "black lakes",
-  "winding creek",
-  "green squares",
-  "brown village"
+  "white sand",
+  "tan land",
+  "black water",
+  "muddy farmland",
+  "green paddy",
+  "straight ditch",
+  "yellow stream",
+  "lush swampland",
+  "pale dune",
+  "murky pool"
  ],
  "rounds": [
   {
    "proposed": [
-    "muddy river",
-    "plowed field",
-    "green field",
-    "wetland",
-    "bare sand",
-    "pond",
-    "narrow stream"
+    "rectangular field",
+    "green irrigated field",
+    "irrigation canal",
+    "river",
+    "green marsh",
+    "sandy island",
+    "bare soil",
+    "dark pond"
    ],
    "failedBefore": []
   },
   {
    "proposed": [
-    "yellow river",
-    "brown farmland",
+    "brown field",
+    "crop plots",
+    "water channel",
+    "yellow water",
     "green vegetation",
-    "white dune",
-    "dark water",
-    "pale soil",
-    "yellow creek"
+    "white sand",
+    "tan land",
+    "black water"
    ],
    "failedBefore": [
-    "muddy river",
-    "plowed field",
-    "green field",
-    "wetland",
-    "bare sand",
-    "pond",
-    "narrow stream"
+    "rectangular field",
+    "irrigation canal",
+    "river",
+    "green marsh",
+    "sandy island",
+    "bare soil",
+    "dark pond"
    ]
   },
   {
    "proposed": [
-    "brown plots",
-    "green swamp",
-    "yellow sand",
-    "black lakes",
-    "winding creek",
-    "green squares",
-    "brown village"
+    "muddy farmland",
+    "green paddy",
+    "straight ditch",
+    "yellow stream",
+    "lush swampland",
+    "pale dune",
+    "murky pool"
    ],
    "failedBefore": [
-    "muddy river",
-    "plowed field",
-    "green field",
-    "wetland",
-    "bare sand",
-    "pond",
-    "narrow stream",
-    "brown farmland",
+    "rectangular field",
+    "irrigation canal",
+    "river",
+    "green marsh",
+    "sandy island",
+    "bare soil",
+    "dark pond",
+    "brown field",
+    "crop plots",
+    "water channel",
     "green vegetation",
-    "white dune",
-    "dark water",
-    "pale soil"
+    "white sand",
+    "tan land",
+    "black water"
    ]
   }
  ],
  "results": [
   {
-   "concept": "muddy river",
+   "concept": "rectangular field",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "plowed field",
-   "instances": [],
-   "areaHa": 0.0,
-   "shareOfScene": 0.0
-  },
-  {
-   "concept": "green field",
-   "instances": [],
-   "areaHa": 0.0,
-   "shareOfScene": 0.0
-  },
-  {
-   "concept": "wetland",
-   "instances": [],
-   "areaHa": 0.0,
-   "shareOfScene": 0.0
-  },
-  {
-   "concept": "bare sand",
-   "instances": [],
-   "areaHa": 0.0,
-   "shareOfScene": 0.0
-  },
-  {
-   "concept": "pond",
-   "instances": [],
-   "areaHa": 0.0,
-   "shareOfScene": 0.0
-  },
-  {
-   "concept": "narrow stream",
-   "instances": [],
-   "areaHa": 0.0,
-   "shareOfScene": 0.0
-  },
-  {
-   "concept": "yellow river",
+   "concept": "green irrigated field",
    "instances": [
     {
      "box": [
       0,
-      0,
-      884,
-      446
+      143,
+      973,
+      1023
      ],
-     "confidence": 0.7887788414955139
+     "confidence": 0.5661016702651978
     }
    ],
-   "areaHa": 684.9,
-   "shareOfScene": 0.0296,
-   "shareWater": 0.0,
-   "iouWater": 0.0,
+   "areaHa": 10890.8,
+   "shareOfScene": 0.4707,
+   "shareWater": 0.051,
+   "iouWater": 0.049,
    "landCoverShares": {
-    "permanent water": 0.916,
-    "herbaceous wetland": 0.084
+    "herbaceous wetland": 0.697,
+    "cropland": 0.231
    },
    "landCoverCoverage": {
-    "permanent water": 0.572,
-    "herbaceous wetland": 0.005
+    "cropland": 0.356,
+    "herbaceous wetland": 0.711
    },
-   "overlay": "/sam/seg-7.png"
+   "overlay": "/sam/seg-1.png"
   },
   {
-   "concept": "brown farmland",
+   "concept": "irrigation canal",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "green vegetation",
+   "concept": "river",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "white dune",
+   "concept": "green marsh",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "dark water",
+   "concept": "sandy island",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "pale soil",
+   "concept": "bare soil",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "yellow creek",
+   "concept": "dark pond",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "brown field",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "crop plots",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "water channel",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "yellow water",
    "instances": [
     {
      "box": [
       0,
-      845,
-      244,
-      966
+      844,
+      246,
+      969
      ],
-     "confidence": 0.5704697966575623
+     "confidence": 0.5428571701049805
     },
     {
      "box": [
@@ -213,84 +207,119 @@
       884,
       446
      ],
-     "confidence": 0.7575758099555969
+     "confidence": 0.7500000596046448
     }
    ],
-   "areaHa": 797.6,
+   "areaHa": 797.4,
    "shareOfScene": 0.0345,
-   "shareWater": 0.049,
-   "iouWater": 0.023,
+   "shareWater": 0.05,
+   "iouWater": 0.024,
    "landCoverShares": {
-    "permanent water": 0.8,
-    "herbaceous wetland": 0.134,
-    "cropland": 0.065
+    "permanent water": 0.801,
+    "herbaceous wetland": 0.13,
+    "cropland": 0.068
    },
    "landCoverCoverage": {
-    "cropland": 0.007,
-    "permanent water": 0.582,
+    "cropland": 0.008,
+    "permanent water": 0.583,
     "herbaceous wetland": 0.01
    },
-   "overlay": "/sam/seg-13.png"
+   "overlay": "/sam/seg-11.png"
   },
   {
-   "concept": "brown plots",
+   "concept": "green vegetation",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "green swamp",
+   "concept": "white sand",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "yellow sand",
+   "concept": "tan land",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "black lakes",
+   "concept": "black water",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "winding creek",
+   "concept": "muddy farmland",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "green paddy",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "straight ditch",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "yellow stream",
    "instances": [
+    {
+     "box": [
+      0,
+      846,
+      244,
+      966
+     ],
+     "confidence": 0.6246334314346313
+    },
     {
      "box": [
       0,
       0,
       884,
-      447
+      445
      ],
-     "confidence": 0.5816993117332458
+     "confidence": 0.7419355511665344
     }
    ],
-   "areaHa": 714.9,
-   "shareOfScene": 0.0309,
-   "shareWater": 0.0,
-   "iouWater": 0.0,
+   "areaHa": 780.3,
+   "shareOfScene": 0.0337,
+   "shareWater": 0.05,
+   "iouWater": 0.024,
    "landCoverShares": {
-    "permanent water": 0.884,
-    "herbaceous wetland": 0.116
+    "permanent water": 0.802,
+    "herbaceous wetland": 0.131,
+    "cropland": 0.066
    },
    "landCoverCoverage": {
-    "permanent water": 0.576,
-    "herbaceous wetland": 0.008
+    "cropland": 0.007,
+    "permanent water": 0.571,
+    "herbaceous wetland": 0.01
    },
-   "overlay": "/sam/seg-18.png"
+   "overlay": "/sam/seg-19.png"
   },
   {
-   "concept": "green squares",
+   "concept": "lush swampland",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0
   },
   {
-   "concept": "brown village",
+   "concept": "pale dune",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "murky pool",
    "instances": [],
    "areaHa": 0.0,
    "shareOfScene": 0.0

@@ -112,6 +112,11 @@ export default function Home() {
             Entrez les quatre termes du bilan. Le calcul reste local et
             déterministe. Une valeur manquante bloque le résultat.
           </p>
+          <p className="intro-copy">
+            <strong>Usage visé :</strong> un analyste de sécurité alimentaire ou un service d&apos;enquête agricole qui doit
+            savoir quels départements ont assez de données pour estimer le rendement du riz, et où l&apos;enquête doit
+            être renforcée. Sur 45 départements, KAIROS en estime 21 et déclare les 24 autres insuffisants.
+          </p>
         </div>
 
         <DepartmentMap />
