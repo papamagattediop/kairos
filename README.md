@@ -23,6 +23,18 @@ Rice is the staple of Senegal and most of it is imported. Decisions about it are
 
 A model never produces a displayed number. If the data is insufficient, the answer is a refusal with its reason.
 
+## Objective and vision
+
+**Objective.** Give analysts a food-supply view of Senegal in which every number can be traced to a source and the system says "insufficient data" instead of guessing. Rice comes first because it is the most imported staple and the best documented.
+
+**Where it goes next.** Extend the same pipeline, one product at a time, to the other staples: millet, maize, groundnut, onion and cowpea, which are already in the product registry at maturity level 0 (they refuse to display anything until their data has been examined). A product is promoted only when it passes the same gates as rice:
+
+1. an official source with a documented unit and licence;
+2. an out-of-sample test with a rule fixed in advance;
+3. a measured uncertainty band, or an honest refusal.
+
+Planned steps beyond that: more years and departments in the survey, a satellite predictor retested with a rule announced before looking (radar or marginal-quality optical data for the rainy season), and a regional balance once production, trade and stock data exist at that level. None of this is built yet.
+
 ## What it does
 
 | Capability | Detail |
