@@ -9,7 +9,7 @@ import { join } from "node:path";
 const dir = () => process.env.META_REPLAY_DIR ?? join(process.cwd(), "data", "replay");
 
 export const replayMode = () => process.env.META_REPLAY === "1";
-export const recordMode = () => process.env.META_RECORD === "1";
+export const recordMode = () => process.env.META_RECORD === "1" && process.env.NODE_ENV !== "production";
 
 function fileFor(body: string) {
   return join(dir(), `${createHash("sha256").update(body).digest("hex").slice(0, 24)}.json`);

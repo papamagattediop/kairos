@@ -33,7 +33,7 @@ export function SamSegments() {
     <figure className="sam-figure">
       <div className="sam-frame">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={valley.image} alt="Image Sentinel-2 de la vallée du fleuve avec les masques segmentés par SAM 3.1" width={valley.width} height={valley.height} loading="lazy" />
+        <img src={valley.image} alt="Image Sentinel-2 de la vallée du fleuve, avec les masques SAM 3.1 que l'on peut afficher" width={valley.width} height={valley.height} loading="lazy" />
         {matched.map(
           (r) =>
             shown.has(r.concept) && (
@@ -46,7 +46,7 @@ export function SamSegments() {
       <figcaption>
         <strong>Muse Spark propose · SAM 3.1 segmente · le code mesure</strong>
         <span>
-          Spark a regardé l&apos;image et proposé {proposed} concepts en {seg.rounds.length} tours (il reçoit la liste des concepts sans résultat pour en
+          Résultat d&apos;une exécution enregistrée de scripts/sam-valley-segments.py (pas un appel en direct). Spark a regardé l&apos;image et proposé {proposed} concepts en {seg.rounds.length} tours (il reçoit la liste des concepts sans résultat pour en
           reformuler). SAM en a reconnu <b>{matched.length}</b>. Surfaces et recoupements sont calculés par le code.
         </span>
 

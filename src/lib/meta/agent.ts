@@ -145,8 +145,11 @@ export function unverifiedNumbers(answer: string, results: unknown[], userNumber
   const text = answer.normalize("NFKC");
   const flagged: string[] = [];
 
-  for (const token of text.match(NUMBER_TOKEN) ?? []) {
-    if (!readings(token).some((n) => known.some((k) => close(k, n)))) flagged.push(token.trim());
+  for (const m of text.matchAll(NUMBER_TOKEN)) {
+    // Un signe moins collé au nombre (hors tiret entre deux mots ou chiffres) change la valeur lue.
+    const negative = /(?:^|[\s(])[-−–]$/.test(text.slice(Math.max(0, m.index - 2), m.index));
+    const sign = negative ? -1 : 1;
+    if (!readings(m[0]).some((n) => known.some((k) => close(k, sign * n)))) flagged.push((negative ? "-" : "") + m[0].trim());
   }
   for (const match of text.match(SPELLED) ?? []) flagged.push(match);
   for (const ch of text.match(/\p{Nd}/gu) ?? []) {

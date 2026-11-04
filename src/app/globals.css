@@ -942,7 +942,7 @@ p {
 
 .region {
   fill: url(#hatch);
-  stroke: var(--line-strong);
+  stroke: var(--field-border);
   stroke-width: 1;
   cursor: pointer;
   outline: none;

@@ -17,7 +17,7 @@ l'événement (27 octobre au 4 novembre) : le dire explicitement, une fois, au d
   validée ». Dire « estimation de référence », « bande d'erreurs observées », « non concluant ».
 - **Règle du concours :** la démo ne doit montrer que ce qui a été construit pendant l'événement (27 octobre au
   4 novembre). Le dire une fois, au début. Les notes de cadrage de `docs/` sont des documents de planification.
-- Lancer `npm test` avant : 138 tests doivent passer. Faire une répétition complète avec chronomètre.
+- Lancer `npm test` avant : 189 tests doivent passer. Faire une répétition complète avec chronomètre.
 
 ## 2. Script, 3 minutes (narration en anglais pour le jury)
 

@@ -13,7 +13,10 @@ export async function POST(request: Request) {
     return Response.json({ error: "Trop de requêtes, réessayez plus tard." }, { status: 429 });
   }
 
-  // On mesure le corps réellement lu, pas seulement l'en-tête content-length.
+  // Rejet précoce sur l'en-tête, puis mesure du corps réellement lu.
+  if (Number(request.headers.get("content-length") ?? 0) > MAX_BODY_BYTES) {
+    return Response.json({ error: "Requête trop volumineuse." }, { status: 413 });
+  }
   const raw = await request.text();
   if (raw.length > MAX_BODY_BYTES) {
     return Response.json({ error: "Requête trop volumineuse." }, { status: 413 });
