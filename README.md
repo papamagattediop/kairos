@@ -29,6 +29,7 @@ A model never produces a displayed number. If the data is insufficient, the answ
 |---|---|
 | **Rice yield by department** | Official annual survey (DAPSA EAA 2017-2025), 45 departments. Estimate and error band for the 21 with enough data; the other 24 show *insufficient data*. Interactive map. |
 | **Net-imports analysis** | 63 years of FAOSTAT, five models tested one year ahead. None beats persistence under the pre-set rule, so **no forecast is published**: a reference range with its measured coverage is shown instead. |
+| **Satellite layers** | Sentinel-2 L2A over the river valley (32 usable dates of 2026): water extent by two methods (NDWI and Sen2Cor class) and NDVI of ESA WorldCover cropland pixels, both reproducible with `scripts/`. Shown as indices, not as crop measures. |
 | **Source extraction** | Muse Spark proposes the four balance terms with a quote; the code re-reads number and unit in the quote and rejects what it cannot verify. |
 | **Tool-calling agent** | Muse Spark picks among six tools. Every number in its answer must appear in a tool result, or the answer is flagged *unverified*. |
 | **Spark + SAM 3.1 loop** | Spark looks at a Sentinel-2 image and proposes concepts, SAM 3.1 segments them, the code measures areas and cross-checks against ESA WorldCover; failed concepts go back to Spark for reformulation. The interface shows the result of a **recorded run** of `scripts/sam-valley-segments.py` (not a live call). |
@@ -41,6 +42,17 @@ A model never produces a displayed number. If the data is insufficient, the answ
 |---|---|---|
 | **Muse Spark 1.3** | Extraction, tool-calling agent, vision (proposes segmentation concepts) | Numbers verified against quotes and tool outputs |
 | **SAM 3.1** | Segmentation of Sentinel-2 imagery, masks decoded with the official `meta-sam-parser` | Areas and cross-checks computed by code |
+
+## Satellite and remote-sensing data
+
+| Source | Used for | Outcome |
+|---|---|---|
+| Sentinel-2 L2A (Copernicus) | Water extent, cropland NDVI, image given to Spark and SAM 3.1 | Measured; indices only, not validated against field data |
+| CHIRPS v3.0 (rainfall) | Tested as a predictor of department rice yield | About 3 % gain in the south, fragile; loss in the north |
+| MODIS MOD13Q1 (NDVI) | Tested as a predictor of department rice yield | **Inconclusive**: too few valid pixels in the rainy season |
+| ESA WorldCover 2021 | Cropland mask, cross-check of SAM masks | Used |
+
+The department yield estimate itself comes from the official survey; no satellite predictor has shown a reliable gain yet, and we report that instead of claiming one.
 
 ## Results, stated plainly
 
