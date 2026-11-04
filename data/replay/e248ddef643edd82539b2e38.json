@@ -1,0 +1,13 @@
+{
+  "content": "J'extrais le bilan de votre extrait pour vérifier si l'écart est calculable.",
+  "tool_calls": [
+    {
+      "id": "call_0189ced6-4d03-4d77-a15c-c98a07907bbd",
+      "type": "function",
+      "function": {
+        "name": "extract_terms",
+        "arguments": "{\"source\":\"Rice, Senegal MY2025/26 (fictional sample): domestic consumption 2,000 (1000 MT); production 1,250 (1000 MT); imports 600 (1000 MT). Stock data not published.\"}"
+      }
+    }
+  ]
+}

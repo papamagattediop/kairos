@@ -1,0 +1,27 @@
+OVERALL OPINION OF META MODEL API — Answer (hackathon application)
+
+
+--- FULL (recommended) ---
+
+Honestly: thoughtfully positive — and more useful precisely because I know where it is strong and where it is not.
+
+What I like most is the engineering pragmatism. A single OpenAI-compatible endpoint means I can drop it into existing Python pipelines without rewriting my clients. The ~1M-token context on Muse Spark means a whole season of source reports can go into one call instead of a fragile chunking-and-stitching pipeline. And structured JSON output plus tool-calling is what actually makes it usable for a decision system: it lets the LLM sit next to deterministic code as the routing and narrative layer, rather than pretending it can do the arithmetic.
+
+Where I would push back, specifically: SAM 3.1 is excellent on water and built-up boundaries — roughly 94–99% IoU — but substantially weaker on agricultural parcels, around 51% IoU. That is exactly my domain. Separately, Muse Voice Transcribe covers 25 languages but not Wolof or Pulaar, which is a real gap for Senegal, and it refuses CSV as an input MIME type, which shapes how I have to hand data over.
+
+So my opinion is: a strong, well-engineered platform that rewards you for knowing its edges. My build is deliberately designed around them — I use SAM where it is reliable, I don't build on the parts that aren't, and I keep a deterministic core so the LLM never owns the number that goes on the artifact.
+
+
+--- SHORT ---
+
+Thoughtfully positive. The OpenAI-compatible endpoint means I can drop it into existing Python pipelines with no rewrite; the ~1M-token context and structured JSON plus tool-calling make it genuinely usable alongside deterministic code rather than instead of it. My honest caveats: SAM 3.1 is strong on water and built-up (~94–99% IoU) but weak on agricultural parcels (~51%), which is exactly my use case, and Muse Voice Transcribe doesn't support Wolof or Pulaar. That's not a reason to avoid it — it's a reason to build around its edges, which is what KAIROS does.
+
+
+--- ONE-LINER (champ court) ---
+
+Strong and well-engineered — especially the OpenAI-compatible endpoint, 1M-token context and structured tool-calling — but I respect its edges: SAM is weak on agricultural parcels and Voice Transcribe misses Wolof/Pulaar. My build is designed around those edges.
+
+
+--- NOTE POUR TOI ---
+
+Ces chiffres viennent de ta propre recherche documentaire, pas d'un test personnel. Si le formulaire est suivi d'un entretien, sois prêt à dire « benchmarks relevés dans la doc, non re-testés ». C'est honnête et ça te positionne comme rigoureux plutôt que comme quelqu'un qui extrapolle.

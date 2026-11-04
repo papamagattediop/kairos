@@ -1,0 +1,29 @@
+{
+  "content": "Je compare les rendements de Kolda et Dagana à partir des estimations disponibles.",
+  "tool_calls": [
+    {
+      "id": "call_d4d55d1f-5f6a-46b1-8947-53ae500320c3",
+      "type": "function",
+      "function": {
+        "name": "get_department_rice",
+        "arguments": "{\"department\":\"Kolda\"}"
+      }
+    },
+    {
+      "id": "call_e0420bc3-1f52-4e62-bd86-18ddb61fc934",
+      "type": "function",
+      "function": {
+        "name": "get_department_rice",
+        "arguments": "{\"department\":\"Dagana\"}"
+      }
+    },
+    {
+      "id": "call_d68c5e5c-f6e2-43ba-bbf9-e5f5665e5d96",
+      "type": "function",
+      "function": {
+        "name": "list_department_rice",
+        "arguments": "{}"
+      }
+    }
+  ]
+}

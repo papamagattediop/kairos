@@ -1,0 +1,40 @@
+{
+  "image": "/sam/valley-sentinel2.jpg",
+  "width": 1024,
+  "height": 1024,
+  "scene": "S2C_MSIL2A_20261018T113321_R080_T28QCD_20261018T145404",
+  "acquired": "2026-10-18",
+  "bboxLonLat": [
+    -16.28,
+    16.4,
+    -16.14,
+    16.54
+  ],
+  "results": [
+    {
+      "prompt": "yellow river",
+      "matched": true,
+      "box": [
+        0,
+        0,
+        884,
+        446
+      ],
+      "confidence": 0.79
+    },
+    {
+      "prompt": "river",
+      "matched": false
+    },
+    {
+      "prompt": "water",
+      "matched": false
+    },
+    {
+      "prompt": "green field",
+      "matched": false
+    }
+  ],
+  "note": "Test expérimental de SAM 3.1. Seul le prompt « yellow river » a renvoyé une détection sur ce cadrage ; « river », « water » et « green field » n'ont rien renvoyé. Boîte englobante uniquement, masque non décodé.",
+  "attribution": "Contains modified Copernicus Sentinel data 2026 (Sentinel-2 L2A, via Microsoft Planetary Computer)."
+}

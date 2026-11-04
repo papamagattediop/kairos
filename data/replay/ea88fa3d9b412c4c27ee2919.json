@@ -1,0 +1,4 @@
+{
+  "content": "Les données FAOSTAT couvrent 1961 à 2023 pour les importations nettes de riz du Sénégal, exprimées en kt par année civile en équivalent paddy probable. La dernière valeur observée est 2218 et la fourchette de référence autour de cette valeur pour 2024 va de 1596 à 3083. Cette fourchette de niveau 80 % couvre 25 cas sur 33 avec couverture observée de 76 % et erreur de persistance de 20 %. Aucun modèle n'est revendiqué car le modèle sélectionné sur 53 tests affiche erreur relative de 0.94 fois celle de la persistance alors que 0.9 ou moins est exigé, et bat la persistance sur 12 pas sur 27. Les limites tiennent à la règle de sélection, au facteur de conversion mesuré sur 4 années communes restant probablement paddy mais non confirmé, et au caractère non officiel de la conclusion sans valeur de recommandation.",
+  "tool_calls": []
+}

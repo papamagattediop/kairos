@@ -1,0 +1,42 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+coverage/
+.turbo/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+
+# Local-only data and recordings
+data/private/
+recordings/raw/
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+
+# Local assistant permissions
+.claude/settings.local.json
+
+# Build artifacts and local tooling (machine-specific paths, not part of the project)
+tsconfig.tsbuildinfo
+.kilo/
+opencode.json
+.claude/
+
+# Données brutes téléchargées à la main (licences, volume) : seul le README du dossier est versionné
+data/incoming/*
+!data/incoming/README.md
+.playwright-mcp/
+
+# Sortie générée localement par graphify (chemins machine)
+graphify-out/
+!data/incoming/MANIFEST.md

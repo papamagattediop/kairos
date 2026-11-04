@@ -1,0 +1,25 @@
+HOW LIKELY TO BUILD WITH META MODEL API — Answer (hackathon application)
+
+
+--- FULL (recommended) ---
+
+Very likely — near-certain. KAIROS is designed so that the Meta Model API is not optional; it is load-bearing.
+
+Specifically: Muse Spark handles the natural-language side — reading messy source reports, routing them to the right pipeline, and writing the narrative on the Decision Ticket. SAM 3.1 handles segmentation on satellite imagery for the crop-condition layer. Both sit behind a fully deterministic core, so the LLM's job is to read, route and explain — never to produce a number that appears on the artifact.
+
+What makes this real rather than aspirational:
+- The build window is 26 Oct – 4 Nov, and Day 1 is already scoped for the first API integration, not for exploring whether to use it.
+- My existing pipelines already run on OpenAI-compatible clients, so pointing them at api.meta.ai/v1 is a config change, not a rewrite.
+- The hackathon credits remove the only real reason I would have hesitated.
+
+If I had to put a number on it: 9/10. The remaining point is a single technical risk — if SAM 3.1's accuracy on Senegalese crop parcels turns out to be below my bar, I would drop that one component and replace it, not drop the API.
+
+
+--- SHORT ---
+
+Very likely — near-certain. KAIROS is built around it: Muse Spark for the language layer (reading reports, routing, and writing the Decision Ticket narrative) and SAM 3.1 for satellite segmentation, both behind a deterministic core so no number is ever LLM-generated. My existing pipelines already use OpenAI-compatible clients, so integrating api.meta.ai/v1 is a config change, and Day 1 of the build window is already scoped for it. I'd say 9/10 — the only risk is SAM 3.1's accuracy on Senegalese crop parcels, and if that fails I'd replace the component, not the API.
+
+
+--- ONE-LINER (champ court) ---
+
+Near-certain — 9/10. KAIROS uses Muse Spark for the language layer and SAM 3.1 for satellite segmentation, both behind a deterministic core; my pipelines are already OpenAI-compatible, so it's a config change and Day 1 is scoped for it.

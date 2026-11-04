@@ -1,0 +1,45 @@
+AI PROJECT — Answer (Meta hackathon application)
+
+
+--- OPTION A · Multilingual Health QA (RECOMMENDED) ---
+
+I built a multilingual question-answering system for health queries in low-resource African languages. The challenge: answer user questions in languages like Wolof, Pulaar, French and English where labelled training data is extremely scarce.
+
+What I built: an end-to-end NLP pipeline. I ingested a multilingual health corpus, engineered cross-lingual representations so the model could transfer learning from high-resource languages to under-resourced ones, and added a retrieval step so every answer is grounded in source material instead of being hallucinated by the model.
+
+Techniques used: multilingual embeddings and cross-lingual transfer learning, retrieval-augmented generation (RAG) for factual grounding, data augmentation to compensate for the scarcity of labelled data, and a structured evaluation loop against a held-out benchmark with error analysis by language.
+
+Result: ranked 69 out of 573 participants — Top 12% — on Zindi's "Multilingual Health Question Answering in Low-Resource African Languages" challenge (2026), competing against teams with far more labelled data.
+
+Why this matters to me: I speak Wolof natively. Building AI that actually works in African languages is not a benchmark exercise for me — it is the entire point.
+
+
+--- OPTION A · SHORTER VERSION ---
+
+I built a multilingual QA system for health questions in low-resource African languages (Wolof, Pulaar, French, English). Using cross-lingual transfer learning and retrieval-augmented generation (RAG), I transferred learning from data-rich languages to data-poor ones and grounded every answer in a source corpus to avoid hallucination. Techniques: multilingual embeddings, RAG, data augmentation, and a held-out evaluation loop with per-language error analysis. Result: Top 12% (69/573) on Zindi's Multilingual Health QA in Low-Resource African Languages challenge, 2026. I speak Wolof natively — making AI work in African languages is the point, not a benchmark.
+
+
+--- OPTION B · RAG Chatbot (alternative) ---
+
+I built an academic assistant chatbot on a retrieval-augmented generation (RAG) architecture. It indexes the school's internal library — student theses and technical reports — and answers questions by retrieving the relevant passages before generating a response, so answers are grounded in real documents rather than invented.
+
+What I built: a full RAG pipeline — document ingestion and chunking, embedding and vector search, retrieval, and answer generation with citations back to the source. I evaluated it on real student questions and iterated on chunk size, retrieval quality and prompt structure until the answers were accurate and citable.
+
+Techniques used: RAG, embeddings and vector similarity search, document chunking strategies, prompt engineering, and Python for the orchestration layer.
+
+Why it matters: it turned a scattered, hard-to-search institutional archive into something students actually use — retrieval instead of hallucination.
+
+
+--- ONE-LINER (if the field is short) ---
+
+I built a multilingual health QA system for low-resource African languages, combining cross-lingual transfer learning and retrieval-augmented generation to make answers grounded and data-efficient — Top 12% (69/573) on Zindi's Multilingual Health QA challenge, 2026.
+
+
+--- AVANT D'ENVOYER (à adapter à ta réalité) ---
+
+Les techniques listées ci-dessus sont des suppositions raisonnables. Vérifie et ajuste :
+1. Le vrai modèle/framework (HuggingFace Transformers ? sentence-transformers ? autre)
+2. As-tu vraiment fait de la data augmentation / back-translation ? sinon, retire-le
+3. As-tu vraiment fait du RAG dans ce challenge ? sinon, décris ta vraie méthode
+4. La taille du corpus / nombre de langues, si tu la connais
+5. Confirmé : classement 69/573, dates 30 avr - 21 juin 2026

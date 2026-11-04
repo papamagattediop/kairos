@@ -1,0 +1,4 @@
+{
+  "content": "{\"demandKt\":{\"value\":2000,\"quote\":\"domestic consumption 2,000 (1000 MT)\"},\"productionKt\":{\"value\":1250,\"quote\":\"production 1,250 (1000 MT)\"},\"importsKt\":{\"value\":600,\"quote\":\"imports 600 (1000 MT)\"},\"stockReleaseKt\":{\"value\":null,\"quote\":null}}",
+  "tool_calls": []
+}

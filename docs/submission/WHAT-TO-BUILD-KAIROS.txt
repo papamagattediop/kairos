@@ -1,0 +1,16 @@
+KAIROS — What I want to build (Meta Global AI Developer Hackathon 2026)
+
+
+--- FULL (~140 words) ---
+
+KAIROS — a food-security decision console for West Africa that doesn't map the harvest, it prices the deficit. It fuses satellite crop-condition signals (Sentinel-2/CHIRPS), FAO food-balance data, and import-policy thresholds into one dated output: the Decision Ticket. The Ticket bands national production, computes the availability gap, and stamps the date the import lever must trigger — with a confidence interval and full source lineage. When the data is too thin, KAIROS refuses to certify rather than guess. Built on Meta's Muse Spark (orchestration + narrative) and SAM 3.1 (segmentation), with a deterministic core so no number is ever produced by the LLM. The goal: give a public food-security analyst a defensible, dated early signal weeks before official revisions. Starting narrow — rice, Senegal — because a real country beats a demo.
+
+
+--- SHORT (~45 words) ---
+
+KAIROS — a console that prices a country's food deficit instead of its harvest. It turns satellite + FAO food-balance + import-threshold data into one dated Decision Ticket: production band, availability gap, and the date to import — or an explicit refusal when data is too thin. Rice, Senegal, first.
+
+
+--- ONE-LINER ---
+
+Price a country's food deficit — and stamp the date to import, before the market feels it.

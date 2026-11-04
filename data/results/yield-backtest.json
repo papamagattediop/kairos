@@ -1,0 +1,128 @@
+{
+ "departements": [
+  "Bignona",
+  "Bounkiling",
+  "Dagana",
+  "Fatick",
+  "Foundiougne",
+  "Goudiry",
+  "Goudomp",
+  "Kedougou",
+  "Kolda",
+  "Koumpentoum",
+  "Matam",
+  "Medina Yoroufoula",
+  "Nioro Du Rip",
+  "Oussouye",
+  "Podor",
+  "Salemata",
+  "Saraya",
+  "Sedhiou",
+  "Tambacounda",
+  "Velingara",
+  "Ziguinchor"
+ ],
+ "annees": [
+  2017,
+  2018,
+  2019,
+  2020,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "n_cellules": 163,
+ "modeles": {
+  "A": {
+   "mae_relative_pct": 17.4,
+   "mae_nord": 7.7,
+   "mae_sud": 19.1
+  },
+  "B": {
+   "mae_relative_pct": 17.4,
+   "mae_nord": 8.3,
+   "mae_sud": 19.0
+  },
+  "C": {
+   "mae_relative_pct": 17.4,
+   "mae_nord": 11.8,
+   "mae_sud": 18.4
+  },
+  "D": {
+   "mae_relative_pct": 16.9,
+   "mae_nord": 7.2,
+   "mae_sud": 18.6
+  }
+ },
+ "rapports_erreur": {
+  "C/A": [
+   1.002,
+   [
+    0.97,
+    1.038
+   ]
+  ],
+  "C/A nord": [
+   1.494,
+   [
+    1.217,
+    1.736
+   ]
+  ],
+  "C/A sud": [
+   0.968,
+   [
+    0.945,
+    0.991
+   ]
+  ],
+  "D/A": [
+   0.975,
+   [
+    0.929,
+    1.03
+   ]
+  ],
+  "D/A nord": [
+   0.937,
+   [
+    0.82,
+    1.134
+   ]
+  ],
+  "D/A sud": [
+   0.977,
+   [
+    0.928,
+    1.043
+   ]
+  ],
+  "B/A": [
+   1.001,
+   [
+    0.851,
+    1.241
+   ]
+  ],
+  "B/A nord": [
+   1.071,
+   [
+    0.916,
+    1.273
+   ]
+  ],
+  "B/A sud": [
+   0.996,
+   [
+    0.843,
+    1.241
+   ]
+  ]
+ },
+ "correlation_residuelle": {
+  "tous": 0.18,
+  "nord": -0.55,
+  "sud": 0.29
+ }
+}

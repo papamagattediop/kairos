@@ -1,0 +1,370 @@
+{
+  "retrievedAt": "2026-11-03",
+  "bbox": [
+    -16.28,
+    16.4,
+    -16.14,
+    16.54
+  ],
+  "zoneAreaKm2": 231.4,
+  "pixelKm2": 0.0004,
+  "methods": {
+    "ndwi": "NDWI = (B03 - B08) / (B03 + B08) > 0 sur Sentinel-2 L2A (McFeeters, 1996), hors pixels de nuage ou d'ombre de nuage de la couche SCL",
+    "scl": "classe 6 (eau) de la couche de classification de scène Sen2Cor"
+  },
+  "source": "Contains modified Copernicus Sentinel data 2026 (Sentinel-2 L2A, via Microsoft Planetary Computer)",
+  "note": "Mesures d'indice non validées contre des relevés de terrain. La surface en eau n'est pas une surface de riz.",
+  "rows": [
+    {
+      "date": "2026-01-11",
+      "item": "S2C_MSIL2A_20260111T113441_R080_T28QCD_20260111T142208",
+      "validPixels": 578178,
+      "cloudShare": 0.0005,
+      "ndwiWaterKm2": 14.68,
+      "sclWaterKm2": 13.89,
+      "usable": true
+    },
+    {
+      "date": "2026-01-16",
+      "item": "S2B_MSIL2A_20260116T113329_R080_T28QCD_20260116T165103",
+      "validPixels": 578178,
+      "cloudShare": 0.0003,
+      "ndwiWaterKm2": 17.69,
+      "sclWaterKm2": 16.66,
+      "usable": true
+    },
+    {
+      "date": "2026-01-21",
+      "item": "S2C_MSIL2A_20260121T113401_R080_T28QCD_20260121T144710",
+      "validPixels": 578178,
+      "cloudShare": 0.0003,
+      "ndwiWaterKm2": 21.61,
+      "sclWaterKm2": 17.3,
+      "usable": true
+    },
+    {
+      "date": "2026-01-26",
+      "item": "S2B_MSIL2A_20260126T113309_R080_T28QCD_20260126T165225",
+      "validPixels": 578178,
+      "cloudShare": 0.0059,
+      "ndwiWaterKm2": 18.44,
+      "sclWaterKm2": 11.11,
+      "usable": true
+    },
+    {
+      "date": "2026-01-31",
+      "item": "S2C_MSIL2A_20260131T113321_R080_T28QCD_20260131T152409",
+      "validPixels": 578178,
+      "cloudShare": 0.0002,
+      "ndwiWaterKm2": 22.36,
+      "sclWaterKm2": 21.19,
+      "usable": true
+    },
+    {
+      "date": "2026-02-10",
+      "item": "S2C_MSIL2A_20260210T113321_R080_T28QCD_20260210T150512",
+      "validPixels": 578178,
+      "cloudShare": 0.0002,
+      "ndwiWaterKm2": 20.89,
+      "sclWaterKm2": 18.1,
+      "usable": true
+    },
+    {
+      "date": "2026-02-15",
+      "item": "S2B_MSIL2A_20260215T113309_R080_T28QCD_20260215T170059",
+      "validPixels": 578178,
+      "cloudShare": 0.0006,
+      "ndwiWaterKm2": 18.61,
+      "sclWaterKm2": 12.29,
+      "usable": true
+    },
+    {
+      "date": "2026-02-20",
+      "item": "S2C_MSIL2A_20260220T113321_R080_T28QCD_20260220T145512",
+      "validPixels": 578178,
+      "cloudShare": 0.0006,
+      "ndwiWaterKm2": 20.11,
+      "sclWaterKm2": 14.05,
+      "usable": true
+    },
+    {
+      "date": "2026-02-25",
+      "item": "S2B_MSIL2A_20260225T113319_R080_T28QCD_20260225T182945",
+      "validPixels": 578178,
+      "cloudShare": 0.0048,
+      "ndwiWaterKm2": 19.7,
+      "sclWaterKm2": 11.55,
+      "usable": true
+    },
+    {
+      "date": "2026-03-02",
+      "item": "S2C_MSIL2A_20260302T113321_R080_T28QCD_20260302T161412",
+      "validPixels": 578178,
+      "cloudShare": 0.0429,
+      "ndwiWaterKm2": 17.56,
+      "sclWaterKm2": 8.51,
+      "usable": true
+    },
+    {
+      "date": "2026-03-27",
+      "item": "S2B_MSIL2A_20260327T113319_R080_T28QCD_20260327T152639",
+      "validPixels": 578178,
+      "cloudShare": 0,
+      "ndwiWaterKm2": 18.93,
+      "sclWaterKm2": 12.15,
+      "usable": true
+    },
+    {
+      "date": "2026-04-01",
+      "item": "S2C_MSIL2A_20260401T113321_R080_T28QCD_20260401T165400",
+      "validPixels": 578178,
+      "cloudShare": 0.0314,
+      "ndwiWaterKm2": 3.77,
+      "sclWaterKm2": 5.63,
+      "usable": true
+    },
+    {
+      "date": "2026-04-03",
+      "item": "S2A_MSIL2A_20260403T114701_R080_T28QCD_20260403T192310",
+      "validPixels": 578178,
+      "cloudShare": 0.0189,
+      "ndwiWaterKm2": 7.13,
+      "sclWaterKm2": 8.14,
+      "usable": true
+    },
+    {
+      "date": "2026-04-06",
+      "item": "S2B_MSIL2A_20260406T113319_R080_T28QCD_20260406T165107",
+      "validPixels": 578178,
+      "cloudShare": 0.0042,
+      "ndwiWaterKm2": 12.09,
+      "sclWaterKm2": 10.88,
+      "usable": true
+    },
+    {
+      "date": "2026-04-13",
+      "item": "S2A_MSIL2A_20260413T113341_R080_T28QCD_20260413T211314",
+      "validPixels": 578178,
+      "cloudShare": 0.2277,
+      "ndwiWaterKm2": 6.67,
+      "sclWaterKm2": 4.91,
+      "usable": false
+    },
+    {
+      "date": "2026-04-23",
+      "item": "S2A_MSIL2A_20260423T114651_R080_T28QCD_20260423T193020",
+      "validPixels": 578178,
+      "cloudShare": 0.1909,
+      "ndwiWaterKm2": 4.53,
+      "sclWaterKm2": 4.78,
+      "usable": false
+    },
+    {
+      "date": "2026-04-26",
+      "item": "S2B_MSIL2A_20260426T113319_R080_T28QCD_20260426T152238",
+      "validPixels": 578178,
+      "cloudShare": 0.0551,
+      "ndwiWaterKm2": 6.65,
+      "sclWaterKm2": 6.05,
+      "usable": false
+    },
+    {
+      "date": "2026-05-03",
+      "item": "S2A_MSIL2A_20260503T113331_R080_T28QCD_20260503T202200",
+      "validPixels": 578178,
+      "cloudShare": 0.0035,
+      "ndwiWaterKm2": 6.43,
+      "sclWaterKm2": 5.67,
+      "usable": true
+    },
+    {
+      "date": "2026-05-11",
+      "item": "S2C_MSIL2A_20260511T113321_R080_T28QCD_20260511T164113",
+      "validPixels": 578178,
+      "cloudShare": 0.0895,
+      "ndwiWaterKm2": 2.38,
+      "sclWaterKm2": 2.75,
+      "usable": false
+    },
+    {
+      "date": "2026-05-16",
+      "item": "S2B_MSIL2A_20260516T113319_R080_T28QCD_20260516T151626",
+      "validPixels": 578178,
+      "cloudShare": 0.0086,
+      "ndwiWaterKm2": 4.03,
+      "sclWaterKm2": 4.3,
+      "usable": true
+    },
+    {
+      "date": "2026-05-21",
+      "item": "S2C_MSIL2A_20260521T113321_R080_T28QCD_20260521T164116",
+      "validPixels": 578178,
+      "cloudShare": 0.0381,
+      "ndwiWaterKm2": 4.89,
+      "sclWaterKm2": 4.26,
+      "usable": true
+    },
+    {
+      "date": "2026-05-23",
+      "item": "S2A_MSIL2A_20260523T113331_R080_T28QCD_20260523T211713",
+      "validPixels": 578178,
+      "cloudShare": 0,
+      "ndwiWaterKm2": 5.99,
+      "sclWaterKm2": 5.92,
+      "usable": true
+    },
+    {
+      "date": "2026-05-26",
+      "item": "S2B_MSIL2A_20260526T113309_R080_T28QCD_20260526T151650",
+      "validPixels": 578178,
+      "cloudShare": 0.0009,
+      "ndwiWaterKm2": 6.11,
+      "sclWaterKm2": 5.49,
+      "usable": true
+    },
+    {
+      "date": "2026-05-31",
+      "item": "S2C_MSIL2A_20260531T113321_R080_T28QCD_20260531T163614",
+      "validPixels": 578178,
+      "cloudShare": 0.0002,
+      "ndwiWaterKm2": 6.52,
+      "sclWaterKm2": 5.56,
+      "usable": true
+    },
+    {
+      "date": "2026-06-22",
+      "item": "S2A_MSIL2A_20260622T114651_R080_T28QCD_20260622T191544",
+      "validPixels": 578178,
+      "cloudShare": 0,
+      "ndwiWaterKm2": 6.29,
+      "sclWaterKm2": 5.51,
+      "usable": true
+    },
+    {
+      "date": "2026-06-25",
+      "item": "S2B_MSIL2A_20260625T113319_R080_T28QCD_20260625T151707",
+      "validPixels": 578178,
+      "cloudShare": 0.0007,
+      "ndwiWaterKm2": 5.82,
+      "sclWaterKm2": 5.62,
+      "usable": true
+    },
+    {
+      "date": "2026-07-02",
+      "item": "S2A_MSIL2A_20260702T113331_R080_T28QCD_20260702T195712",
+      "validPixels": 578178,
+      "cloudShare": 0,
+      "ndwiWaterKm2": 6.34,
+      "sclWaterKm2": 5.47,
+      "usable": true
+    },
+    {
+      "date": "2026-07-12",
+      "item": "S2A_MSIL2A_20260712T114651_R080_T28QCD_20260712T191819",
+      "validPixels": 578178,
+      "cloudShare": 0.0098,
+      "ndwiWaterKm2": 4.55,
+      "sclWaterKm2": 3.54,
+      "usable": true
+    },
+    {
+      "date": "2026-07-15",
+      "item": "S2B_MSIL2A_20260715T113319_R080_T28QCD_20260715T151522",
+      "validPixels": 578178,
+      "cloudShare": 0.0159,
+      "ndwiWaterKm2": 2.8,
+      "sclWaterKm2": 2.69,
+      "usable": true
+    },
+    {
+      "date": "2026-07-20",
+      "item": "S2C_MSIL2A_20260720T113321_R080_T28QCD_20260720T163714",
+      "validPixels": 578178,
+      "cloudShare": 0.4967,
+      "ndwiWaterKm2": 6.33,
+      "sclWaterKm2": 5.2,
+      "usable": false
+    },
+    {
+      "date": "2026-07-22",
+      "item": "S2A_MSIL2A_20260722T113341_R080_T28QCD_20260722T195921",
+      "validPixels": 578178,
+      "cloudShare": 0.0195,
+      "ndwiWaterKm2": 0.36,
+      "sclWaterKm2": 2.46,
+      "usable": true
+    },
+    {
+      "date": "2026-08-14",
+      "item": "S2B_MSIL2A_20260814T113319_R080_T28QCD_20260814T151959",
+      "validPixels": 578178,
+      "cloudShare": 0.0375,
+      "ndwiWaterKm2": 22.19,
+      "sclWaterKm2": 8.08,
+      "usable": true
+    },
+    {
+      "date": "2026-08-19",
+      "item": "S2C_MSIL2A_20260819T113321_R080_T28QCD_20260819T163110",
+      "validPixels": 578178,
+      "cloudShare": 0.5002,
+      "ndwiWaterKm2": 7.78,
+      "sclWaterKm2": 2.37,
+      "usable": false
+    },
+    {
+      "date": "2026-08-31",
+      "item": "S2A_MSIL2A_20260831T113331_R080_T28QCD_20260831T212711",
+      "validPixels": 578178,
+      "cloudShare": 0.032,
+      "ndwiWaterKm2": 13.25,
+      "sclWaterKm2": 5.25,
+      "usable": true
+    },
+    {
+      "date": "2026-09-10",
+      "item": "S2A_MSIL2A_20260910T114651_R080_T28QCD_20260910T190819",
+      "validPixels": 578178,
+      "cloudShare": 0.1159,
+      "ndwiWaterKm2": 11.72,
+      "sclWaterKm2": 6.13,
+      "usable": false
+    },
+    {
+      "date": "2026-09-20",
+      "item": "S2A_MSIL2A_20260920T113331_R080_T28QCD_20260920T200215",
+      "validPixels": 578178,
+      "cloudShare": 0.0082,
+      "ndwiWaterKm2": 9.82,
+      "sclWaterKm2": 10.28,
+      "usable": true
+    },
+    {
+      "date": "2026-09-30",
+      "item": "S2A_MSIL2A_20260930T114651_R080_T28QCD_20260930T191704",
+      "validPixels": 578178,
+      "cloudShare": 0.0023,
+      "ndwiWaterKm2": 9.84,
+      "sclWaterKm2": 11.14,
+      "usable": true
+    },
+    {
+      "date": "2026-10-13",
+      "item": "S2B_MSIL2A_20261013T113319_R080_T28QCD_20261013T154950",
+      "validPixels": 578178,
+      "cloudShare": 0.0043,
+      "ndwiWaterKm2": 7.87,
+      "sclWaterKm2": 10.8,
+      "usable": true
+    },
+    {
+      "date": "2026-10-18",
+      "item": "S2C_MSIL2A_20261018T113321_R080_T28QCD_20261018T145404",
+      "validPixels": 578178,
+      "cloudShare": 0.0014,
+      "ndwiWaterKm2": 9.38,
+      "sclWaterKm2": 11.47,
+      "usable": true
+    }
+  ]
+}

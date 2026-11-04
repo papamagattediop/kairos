@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>KAIROS — Deck de décision</title>
+<style>
+  :root{
+    --ink:#111418;        /* off-black base */
+    --panel:#171C22;      /* card surface */
+    --panel-2:#141920;    /* alt row / deeper panel */
+    --raise:#212831;      /* raised header fill */
+    --line:#262D36;       /* hairline */
+    --line-2:#313A45;
+    --ochre:#E8A33D;      /* single accent */
+    --red:#E5484D;        /* danger / risk */
+    --violet:#9B8AFB;     /* proof token */
+    --cream:#F5F0E6;
+    --muted:#8A8F98;
+    --muted-2:#5F6772;
+
+    --display:"Bahnschrift","DIN Alternate","Segoe UI Semibold",sans-serif;
+    --body:"Segoe UI",system-ui,sans-serif;
+    --mono:"Consolas","Cascadia Mono",ui-monospace,monospace;
+
+    --pad-x:56px;
+    --pad-y:44px;
+    --radius:12px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#000;}
+  body{font-family:var(--body);color:var(--cream);-webkit-font-smoothing:antialiased;}
+
+  @page{ size:1280px 720px; margin:0; }
+
+  .slide{
+    position:relative;
+    width:1280px;height:720px;
+    background:var(--ink);
+    padding:var(--pad-y) var(--pad-x);
+    display:flex;flex-direction:column;
+    overflow:hidden;
+    page-break-after:always;
+    margin:0 auto;
+  }
+  .slide:last-child{page-break-after:auto;}
+  @media screen{
+    body{padding:24px 0;}
+    .slide{margin:0 auto 24px;box-shadow:0 12px 40px rgba(0,0,0,.6);border:1px solid #1c2229;}
+  }
+
+  /* ---- header ---- */
+  .s-head{flex:0 0 auto;}
+  .krow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .kbar{width:26px;height:5px;background:var(--ochre);border-radius:1px;flex:0 0 auto;}
+  .kicker{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--ochre);text-transform:uppercase;}
+  .brand{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.22em;color:var(--muted-2);margin-left:auto;text-transform:uppercase;}
+  .s-title{font-family:var(--display);font-weight:700;font-size:40px;line-height:1.02;letter-spacing:-.01em;color:var(--cream);max-width:1080px;}
+  .hr{height:1px;background:var(--line);margin-top:20px;}
+
+  /* ---- body ---- */
+  .s-body{flex:1 1 auto;padding-top:26px;display:flex;flex-direction:column;min-height:0;}
+
+  /* ---- footer ---- */
+  .s-foot{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;
+    font-family:var(--mono);font-size:11px;color:var(--muted-2);letter-spacing:.03em;
+    border-top:1px solid var(--line);padding-top:12px;margin-top:16px;}
+  .s-foot .tag{color:var(--muted);}
+  .s-foot .tag b{color:var(--ochre);font-weight:700;}
+
+  /* ---- cards ---- */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px;}
+  .card.raise{background:var(--raise);}
+  .card.ochre{border-color:var(--ochre);}
+  .card.red{border-color:var(--red);}
+  .card.violet{border-color:var(--violet);}
+  .c-lab{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;}
+  .c-ttl{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.01em;color:var(--cream);margin-top:8px;}
+  .c-body{font-size:14px;line-height:1.5;color:var(--muted);margin-top:10px;}
+
+  /* ---- bullets ---- */
+  ul.b{list-style:none;display:flex;flex-direction:column;gap:13px;}
+  ul.b li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.45;color:var(--cream);}
+  ul.b li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:2px;background:var(--ochre);}
+  ul.b li .m{color:var(--muted);}
+  ul.b li.red::before{background:var(--red);}
+
+  .lead{font-size:16px;line-height:1.5;color:var(--cream);}
+  .note{font-size:13.5px;line-height:1.5;color:var(--muted);}
+  .note.red{color:var(--red);}
+  .note.ochre{color:var(--ochre);}
+  .mono{font-family:var(--mono);}
+
+  /* ---- bars ---- */
+  .brow{display:grid;grid-template-columns:170px 1fr;align-items:center;gap:22px;margin-bottom:26px;}
+  .brow .lab{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;}
+  .track{position:relative;height:34px;background:var(--panel);border-radius:17px;}
+  .fill{position:absolute;inset:0 auto 0 0;border-radius:17px;}
+  .val{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--display);font-weight:700;font-size:19px;}
+
+  /* ---- chevron chain ---- */
+  .chain{display:flex;gap:10px;}
+  .chev{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 16px 16px 22px;position:relative;clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 14px 50%);}
+  .chev.hero{background:var(--ochre);border-color:var(--ochre);}
+  .chev .ct{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--ochre);text-transform:uppercase;}
+  .chev.hero .ct{color:#1a1408;}
+  .chev .cs{font-size:12.5px;line-height:1.3;color:var(--muted);margin-top:8px;}
+  .chev.hero .cs{color:#3a2c0e;}
+
+  /* ---- debate columns ---- */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .deb{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;}
+  .deb::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;}
+  .deb.a::before{background:var(--ochre);}
+  .deb.b::before{background:var(--red);}
+  .deb .who{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;}
+  .deb.a .who{color:var(--ochre);}
+  .deb.b .who{color:var(--red);}
+
+  /* ---- big stat ---- */
+  .stat{font-family:var(--display);font-weight:700;font-size:56px;line-height:.95;}
+  .stat-cap{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-top:10px;}
+
+  /* ---- table ---- */
+  table{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
+  th{background:var(--raise);color:var(--ochre);font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:12px 14px;}
+  td{padding:13px 14px;border-top:1px solid var(--line);color:var(--muted);}
+  tr.alt td{background:var(--panel-2);}
+  td:first-child{color:var(--cream);}
+  td.num{font-family:var(--mono);text-align:center;color:var(--cream);font-weight:700;}
+  tr.hi td{background:#2A2418;}
+  tr.hi td:first-child{color:var(--ochre);}
+  tr.hi td.num:last-child{color:var(--ochre);}
+  .th-center{text-align:center;}
+
+  /* ---- 4-up / 3-up ---- */
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .grid4 .card,.grid3 .card{display:flex;flex-direction:column;}
+
+  .tagbar{background:#2A2418;border:1px solid var(--ochre);border-radius:10px;padding:14px 22px;text-align:center;font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);}
+  .tagbar.red{background:#2A1214;border-color:var(--red);}
+  .callout{display:flex;align-items:center;gap:14px;font-size:15px;}
+  .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;}
+  .dot.o{background:var(--ochre);} .dot.r{background:var(--red);} .dot.d{background:#313A45;}
+
+  /* ---- cover ---- */
+  .cover-grid{display:grid;grid-template-columns:1fr 380px;gap:56px;height:100%;}
+  .cover-k{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ochre);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:26px;}
+  .cover-title{font-family:var(--display);font-weight:700;font-size:76px;line-height:.94;letter-spacing:-.015em;color:var(--cream);}
+  .cover-sub{font-family:var(--display);font-weight:700;font-size:25px;color:var(--ochre);margin-top:26px;}
+  .cover-sub .mut{color:var(--muted);}
+  .cover-panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px;display:flex;flex-direction:column;justify-content:center;}
+  .cover-panel .big{font-family:var(--display);font-weight:700;font-size:128px;line-height:.85;color:var(--ochre);}
+  .cover-panel .lab{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.24em;color:var(--muted);margin-top:6px;text-transform:uppercase;}
+  .cover-panel .rule{height:1px;background:var(--line-2);margin:26px 0;}
+  .cover-panel .dates{font-family:var(--mono);font-size:15px;font-weight:700;letter-spacing:.06em;color:var(--cream);}
+  .cover-panel .ks{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--red);margin-top:22px;letter-spacing:.08em;}
+  .cover-panel .ksd{font-size:13.5px;line-height:1.5;color:var(--muted);margin-top:8px;}
+
+  /* ---- gate timeline ---- */
+  .gates{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;}
+  .gate{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 8px;text-align:center;}
+  .gate.j1{background:#2A1214;border-color:var(--red);}
+  .gate .d{font-family:var(--display);font-weight:700;font-size:19px;color:var(--ochre);}
+  .gate.j1 .d{color:var(--red);}
+  .gate .l{font-size:11px;line-height:1.25;color:var(--muted);margin-top:8px;}
+  .phase{display:grid;grid-template-columns:6fr 3.4fr 2.3fr;gap:8px;margin-top:22px;}
+  .phase .seg{height:4px;border-radius:2px;}
+  .phase .p1{background:var(--ochre);} .phase .p2{background:var(--cream);} .phase .p3{background:var(--muted-2);}
+  .phase-labs{display:grid;grid-template-columns:6fr 3.4fr 2.3fr;gap:8px;margin-top:10px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;text-align:center;}
+  .phase-labs .a{color:var(--ochre);} .phase-labs .b{color:var(--cream);}
+</style>
+</head>
+<body>
+
+<!-- ============ 01 · COVER ============ -->
+<section class="slide">
+  <div class="cover-grid">
+    <div style="display:flex;flex-direction:column;justify-content:center;">
+      <div class="cover-k"><span style="width:26px;height:5px;background:var(--ochre);display:inline-block;border-radius:1px;"></span> Meta Global AI Developer Hackathon 2026 · Track Indie</div>
+      <h1 class="cover-title">Une décision,<br>dix jours.</h1>
+      <div class="cover-sub">KAIROS — Prévenir le déficit.<br><span class="mut">Ou le pivot : Flood Recovery Triage.</span></div>
+      <ul class="b" style="margin-top:38px;max-width:620px;">
+        <li>26 octobre → 4 novembre 2026. Dix jours de build, <span class="m">une seule carte à jouer.</span></li>
+        <li>L'avantage : stats, ETL, NLP, SIG, full-stack. <span class="m">La contrainte : seul, dix jours.</span></li>
+        <li>Ce deck tranche : <b style="color:var(--ochre)">KAIROS</b> rétréci — ou le fallback.</li>
+      </ul>
+    </div>
+    <div class="cover-panel">
+      <div class="big">10</div>
+      <div class="lab">Jours</div>
+      <div class="rule"></div>
+      <div class="dates">26 OCT &nbsp;→&nbsp; 4 NOV</div>
+      <div class="ks">J1 · KILL SWITCH</div>
+      <div class="ksd">Un seul signal daté, produit en ≤ 6 h. Sinon : pivot.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · VERDICT ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Le verdict</span><span class="brand">Kairos</span></div>
+    <div class="s-title">GO conditionnel — avec un interrupteur.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:44px;">
+      <ul class="b" style="max-width:640px;">
+        <li><b>KAIROS rétréci</b> : un produit, un pays, un artefact.</li>
+        <li><b>Fallback armé</b> : Flood Recovery Triage, pré-câblé. Un pivot coûte un jour.</li>
+        <li>Plafond le plus haut (81/100). Plancher inacceptable si le kill switch du Jour 1 ne tire pas.</li>
+        <li>Rien ne démarre avant acceptation des huit conditions.</li>
+        <li class="red">MamanRef est disqualifié : Voice Transcribe n'a ni wolof ni pulaar.</li>
+      </ul>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center;gap:16px;">
+        <div class="callout"><span class="dot d"></span><span class="mono" style="font-size:12.5px;color:var(--muted);letter-spacing:.1em;">GO</span></div>
+        <div class="callout"><span class="dot o"></span><span class="mono" style="font-size:12.5px;color:var(--ochre);letter-spacing:.1em;font-weight:700;">GO CONDITIONNEL</span></div>
+        <div class="callout"><span class="dot d"></span><span class="mono" style="font-size:12.5px;color:var(--muted);letter-spacing:.1em;">PIVOT</span></div>
+        <div class="hr" style="margin:6px 0;"></div>
+        <div class="mono" style="font-size:11.5px;line-height:1.7;color:var(--muted);">8 conditions<br>Kill switch J1<br>Fallback armé</div>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>02 / 14</span></div>
+</section>
+
+<!-- ============ 03 · ARITHMÉTIQUE ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">L'arithmétique du prix</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Le 1er se gagne sur l'impact. Il se défend sur la démo.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="brow"><div class="lab">Impact</div><div class="track"><div class="fill" style="width:100%;background:var(--ochre);"></div><div class="val" style="left:calc(100% + 16px);color:var(--ochre);">30</div></div></div>
+    <div class="brow"><div class="lab">Meta</div><div class="track"><div class="fill" style="width:83.3%;background:var(--cream);"></div><div class="val" style="left:calc(83.3% + 16px);color:var(--cream);">25</div></div></div>
+    <div class="brow"><div class="lab">Démo</div><div class="track"><div class="fill" style="width:83.3%;background:var(--red);"></div><div class="val" style="left:calc(83.3% + 16px);color:var(--red);">25</div></div></div>
+    <div class="brow"><div class="lab">Profondeur</div><div class="track"><div class="fill" style="width:66.7%;background:var(--violet);"></div><div class="val" style="left:calc(66.7% + 16px);color:var(--violet);">20</div></div></div>
+    <div style="margin-top:4px;display:flex;flex-direction:column;gap:10px;">
+      <div class="lead">KAIROS : plafond haut, variance haute. Un finaliste se joue à 3–8 %.</div>
+      <div class="lead" style="color:var(--red);">Le risque n'est pas de perdre : c'est de construire un dashboard de plus.</div>
+    </div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>03 / 14</span></div>
+</section>
+
+<!-- ============ 04 · CE QU'EST KAIROS ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Ce qu'est Kairos</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Il ne cartographie pas les cultures. Il price le déficit.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="chain">
+      <div class="chev"><div class="ct">Satellite</div><div class="cs">Sentinel-1/2<br>CHIRPS</div></div>
+      <div class="chev"><div class="ct">Production</div><div class="cs">Bande p50<br>+ intervalle</div></div>
+      <div class="chev"><div class="ct">Bilan FAO</div><div class="cs">Offre /<br>disponibilité</div></div>
+      <div class="chev"><div class="ct">Seuil</div><div class="cs">Import<br>ARM</div></div>
+      <div class="chev hero"><div class="ct">Alerte datée</div><div class="cs">Ticket de<br>décision</div></div>
+    </div>
+    <div class="grid3" style="margin-top:26px;flex:1;">
+      <div class="card"><div class="c-lab">Ticket de décision</div><div class="c-body">Production, déficit, seuil, date, confiance, sources. L'objet que les juges photographient.</div></div>
+      <div class="card"><div class="c-lab">Cœur déterministe</div><div class="c-body">Aucun chiffre produit par le LLM. Muse Spark lit, route, raconte.</div></div>
+      <div class="card"><div class="c-lab">État de refus</div><div class="c-body">Si la donnée manque, KAIROS refuse de certifier. Sortie explicite, pas un silence.</div></div>
+    </div>
+    <div class="lead" style="margin-top:22px;">Une seule question : <b style="color:var(--ochre)">quand le déficit devient-il un risque ?</b></div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>04 / 14</span></div>
+</section>
+
+<!-- ============ 05 · LE DÉBAT ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Le débat</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Deux experts, deux vérités.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="two" style="flex:1;">
+      <div class="deb a">
+        <div class="who">A · Lead technique · Pour</div>
+        <ul class="b">
+          <li>Cœur déterministe, LOYO 2019–2024.</li>
+          <li>MAPE ≤ 15 % · couverture ≥ 80 % · lead ≥ 60 j.</li>
+          <li style="color:var(--ochre);">« Le harnais est faisable. »</li>
+        </ul>
+      </div>
+      <div class="deb b">
+        <div class="who">B · Red team · Contre</div>
+        <ul class="b">
+          <li class="red">Bande hors-échantillon : ±30–40 % (P = .75).</li>
+          <li class="red">Backtest non validé en 10 j (P = .80).</li>
+          <li class="red">Scope explosion (P = .75) · démo → dashboard (P = .65).</li>
+          <li style="color:var(--red);">« Ne survit pas tel quel. »</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tagbar red" style="margin-top:20px;">Le nœud : A price la mécanique. B price le résultat.</div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>05 / 14</span></div>
+</section>
+
+<!-- ============ 06 · BACKTEST ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Arbitrage — le backtest</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Faisable n'est pas favorable.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="two" style="flex:0 0 auto;">
+      <div class="card">
+        <div class="stat" style="color:var(--ochre);">85 %</div>
+        <div class="stat-cap" style="color:var(--ochre);">Peut tourner</div>
+        <div class="c-body" style="color:var(--cream);">Harnais LOYO : ~1,5 jour. Le test est de l'évaluation, pas de la recherche.</div>
+      </div>
+      <div class="card">
+        <div class="stat" style="color:var(--red);">45 %</div>
+        <div class="stat-cap" style="color:var(--red);">Peut atteindre les cibles</div>
+        <div class="c-body" style="color:var(--cream);">MAPE + couverture + signe, du premier coup. On ne peut pas le promettre.</div>
+      </div>
+    </div>
+    <ul class="b" style="margin-top:26px;">
+      <li>n = 6 : intervalles de confiance larges. C'est un plafond de Profondeur, <span class="m">pas un blocage.</span></li>
+      <li>Harnais = obligation Jour 3. Résultat = rapporté, <span class="m">jamais promis.</span></li>
+      <li>Si le backtest échoue, on ne cache pas : le Ticket passe en <b style="color:var(--violet)">insufficient_data</b>.</li>
+    </ul>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>06 / 14</span></div>
+</section>
+
+<!-- ============ 07 · LES OPTIONS ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Les options</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Trois builds, trois profils.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <table>
+      <thead><tr><th>Build</th><th class="th-center">Impact</th><th class="th-center">Meta</th><th class="th-center">Démo</th><th class="th-center">Prof.</th><th class="th-center">Total</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td>KAIROS (rétréci)</td><td class="num">23</td><td class="num">20</td><td class="num">21</td><td class="num">17</td><td class="num">81</td></tr>
+        <tr class="alt"><td>Flood Recovery Triage</td><td class="num">19</td><td class="num">22</td><td class="num">21</td><td class="num">13</td><td class="num">75</td></tr>
+        <tr><td>MamanRef</td><td class="num">22</td><td class="num">11</td><td class="num">16</td><td class="num">14</td><td class="num">63</td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:16px;">MamanRef disqualifié : Voice Transcribe n'a ni wolof ni pulaar. Le différenciateur Meta est mort.</div>
+    <div class="two" style="margin-top:24px;">
+      <div class="card ochre"><div class="c-lab" style="color:var(--ochre);">Kairos = plafond</div><div class="c-body" style="color:var(--cream);">Impact + Profondeur. Le 1er se gagne ici.</div></div>
+      <div class="card"><div class="c-lab">Flood = plancher</div><div class="c-body" style="color:var(--cream);">Démo + Meta. Le safety net.</div></div>
+    </div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>07 / 14</span></div>
+</section>
+
+<!-- ============ 08 · QUE CONSTRUIRE ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Arbitrage — que construire</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Le plafond, avec un parachute.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div style="display:grid;grid-template-columns:1fr 190px 1fr;gap:20px;align-items:center;">
+      <div class="card ochre">
+        <div class="c-lab" style="color:var(--ochre);">Kairos</div>
+        <div class="c-body" style="color:var(--cream);">Rétréci : riz, Sénégal, Ticket de décision.</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="tagbar red" style="padding:12px 10px;">J1 · KILL</div>
+        <div class="mono" style="font-size:10px;color:var(--muted);margin-top:8px;letter-spacing:.08em;">SI ÉCHEC →</div>
+      </div>
+      <div class="card">
+        <div class="c-lab">Flood Triage</div>
+        <div class="c-body" style="color:var(--cream);">Fallback pré-câblé. Un pivot coûte un jour.</div>
+      </div>
+    </div>
+    <ul class="b" style="margin-top:30px;">
+      <li>Construire KAIROS pour le 1er. L'inondation du 2 octobre est <b style="color:var(--red)">l'instance de démo</b>, pas le produit.</li>
+      <li>Flood Triage pré-câblé : le pivot est un plan B armé, pas une improvisation.</li>
+      <li>MamanRef out : le différenciateur Meta est mort.</li>
+    </ul>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>08 / 14</span></div>
+</section>
+
+<!-- ============ 09 · ACHETEUR & CADRAGE ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Acheteur &amp; cadrage</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Le levier est au Commerce. Le signal est à l'Agriculture.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div style="display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:20px;align-items:center;">
+      <div class="card ochre">
+        <div class="c-lab" style="color:var(--ochre);">Commerce</div>
+        <div class="c-body" style="color:var(--cream);">Comité de suivi des prix · DCI / ARM · plafond &amp; exonérations.</div>
+        <div class="c-lab" style="margin-top:14px;">Le levier</div>
+      </div>
+      <div style="text-align:center;font-family:var(--display);font-weight:700;font-size:16px;color:var(--ochre);">coordination<br>de l'offre</div>
+      <div class="card ochre">
+        <div class="c-lab" style="color:var(--ochre);">DAPSA / DGPSA</div>
+        <div class="c-body" style="color:var(--cream);">Signal de production · co-signature · Cadre Harmonisé.</div>
+        <div class="c-lab" style="margin-top:14px;">Le signal</div>
+      </div>
+    </div>
+    <ul class="b" style="margin-top:28px;">
+      <li>Cadrage : coordination de l'offre, co-signée DAPSA, synchronisée Cadre Harmonisé.</li>
+      <li>Publier des bandes, jamais des points : un chiffre public peut créer de la thésaurisation.</li>
+      <li>Plafond de claim : « co-conçu avec un analyste DAPSA ». Jamais « utilisé par le Ministère ».</li>
+    </ul>
+    <div class="tagbar red" style="margin-top:20px;">Sans partenaire nommé, Kairos est un bel artefact sans acheteur.</div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>09 / 14</span></div>
+</section>
+
+<!-- ============ 10 · QUATRE CADRAGES ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Quatre cadrages, quatre rôles</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Une thèse, un artefact, une date, une preuve.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="grid4" style="flex:1;">
+      <div class="card" style="border-top:4px solid var(--ochre);">
+        <div class="c-lab">Thèse</div><div class="c-ttl" style="color:var(--ochre);">Gap Pricer</div>
+        <div class="c-body">On date le déficit plus tôt que l'USDA. C'est la raison d'être.</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--cream);">
+        <div class="c-lab">Artefact</div><div class="c-ttl">Ticket</div>
+        <div class="c-body">L'objet que les juges photographient. Une page, six champs.</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--red);">
+        <div class="c-lab">Date</div><div class="c-ttl" style="color:var(--red);">Import Clock</div>
+        <div class="c-body">« Date de déclenchement », pas « compte à rebours ». Le levier n'existe pas.</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--violet);">
+        <div class="c-lab">Preuve</div><div class="c-ttl" style="color:var(--violet);">Refusal</div>
+        <div class="c-body">Refuser de certifier est une sortie. C'est la crédibilité.</div>
+      </div>
+    </div>
+    <div style="margin-top:22px;display:flex;flex-direction:column;gap:10px;">
+      <div class="lead" style="color:var(--red);">Import Clock en cadre principal : rejeté. Sans levier, le compte à rebours est du théâtre.</div>
+      <div class="lead">Ce qui reste : la thèse, le ticket, la date, la preuve.</div>
+    </div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>10 / 14</span></div>
+</section>
+
+<!-- ============ 11 · PRODUIT OU EXERCICE ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Produit ou exercice ?</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Tel quel : 70 % académique.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div style="position:relative;height:56px;margin-top:6px;">
+      <div class="track" style="height:40px;border-radius:20px;">
+        <div class="fill" style="width:70%;background:var(--ochre);border-radius:20px 0 0 20px;"></div>
+      </div>
+      <div style="position:absolute;top:-4px;left:70%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;font-weight:700;color:var(--red);">▼ AUJOURD'HUI</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-top:8px;">
+      <span>Académique</span><span style="color:var(--ochre);">Produit</span>
+    </div>
+    <div class="grid4" style="margin-top:30px;">
+      <div class="card" style="text-align:center;"><div class="c-lab" style="color:var(--ochre);">Forum récurrent</div></div>
+      <div class="card" style="text-align:center;"><div class="c-lab" style="color:var(--ochre);">Coordination</div></div>
+      <div class="card" style="text-align:center;"><div class="c-lab" style="color:var(--ochre);">Partenaire DAPSA</div></div>
+      <div class="card" style="text-align:center;"><div class="c-lab" style="color:var(--ochre);">Financement</div></div>
+    </div>
+    <ul class="b" style="margin-top:28px;">
+      <li>La contrainte n'est pas la prévision. C'est le financement et la volonté politique.</li>
+      <li>Produit seulement si les quatre conditions sont réunies : sinon, c'est un bel artefact.</li>
+      <li>Financement : FSRP (<span class="m">early-warning-to-action</span>), FAO TCP, AFD. <b style="color:var(--red)">Pas USAID.</b></li>
+    </ul>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>11 / 14</span></div>
+</section>
+
+<!-- ============ 12 · DIX JOURS ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Dix jours, dix portes</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Une porte par jour. Un jour de retard = pivot.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="gates">
+      <div class="gate j1"><div class="d">J1</div><div class="l">Kill switch</div></div>
+      <div class="gate"><div class="d">J2</div><div class="l">Panneau</div></div>
+      <div class="gate"><div class="d">J3</div><div class="l">LOYO</div></div>
+      <div class="gate"><div class="d">J4</div><div class="l">Métriques</div></div>
+      <div class="gate"><div class="d">J5</div><div class="l">Spark + SAM</div></div>
+      <div class="gate"><div class="d">J6</div><div class="l">USDA 1,71</div></div>
+      <div class="gate"><div class="d">J7</div><div class="l">Ticket</div></div>
+      <div class="gate"><div class="d">J8</div><div class="l">Chaîne 90 s</div></div>
+      <div class="gate"><div class="d">J9</div><div class="l">Rapport</div></div>
+      <div class="gate"><div class="d">J10</div><div class="l">Freeze</div></div>
+    </div>
+    <div class="phase"><div class="seg p1"></div><div class="seg p2"></div><div class="seg p3"></div></div>
+    <div class="phase-labs"><div class="a">Construire</div><div class="b">Prouver</div><div>Figer</div></div>
+    <ul class="b" style="margin-top:34px;">
+      <li>J1 : un signal directionnel daté, entrées d'avant-événement, lead positif, ≤ 6 h. <b style="color:var(--red)">Échec = pivot.</b></li>
+      <li>J3 : le harnais LOYO tourne. J4 : les métriques sont gelées, favorables ou non.</li>
+      <li>J6 : correction USDA — <b style="color:var(--ochre)">1,71 Mt (MY25/26), 1,76 Mt (MY26/27)</b>. Jamais 1,66.</li>
+    </ul>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>12 / 14</span></div>
+</section>
+
+<!-- ============ 13 · RISQUES ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Risques &amp; parades</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Les cinq façons de perdre — et la réponse.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <table>
+      <thead><tr><th style="width:42%;">Risque</th><th class="th-center" style="width:8%;">P</th><th>Parade</th></tr></thead>
+      <tbody>
+        <tr class="alt"><td>La bande échoue hors-échantillon</td><td class="num" style="color:var(--red);">.75</td><td>Rapport directionnel + daté. Bandes, pas points.</td></tr>
+        <tr><td>Pas de backtest validé en 10 j</td><td class="num" style="color:var(--red);">.80</td><td>Kill switch J1. Harnais J3. Résultat rapporté.</td></tr>
+        <tr class="alt"><td>Scope explosion</td><td class="num" style="color:var(--ochre);">.75</td><td>1 produit · 1 pays · 1 artefact.</td></tr>
+        <tr><td>La démo devient un dashboard</td><td class="num" style="color:var(--ochre);">.65</td><td>Storyboard 90 s. Zéro dashboard.</td></tr>
+        <tr class="alt"><td>Refus théâtre / Meta sous-utilisé / hors-thème</td><td class="num" style="color:var(--muted);">—</td><td>Sorties explicites · 2 outils visibles · hook JOJ.</td></tr>
+      </tbody>
+    </table>
+    <div class="lead" style="margin-top:22px;">Le risque n°1 n'est pas technique. <b style="color:var(--ochre)">C'est de survivre au backtest.</b></div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>13 / 14</span></div>
+</section>
+
+<!-- ============ 14 · CE QU'IL ME FAUT ============ -->
+<section class="slide">
+  <div class="s-head">
+    <div class="krow"><span class="kbar"></span><span class="kicker">Ce qu'il me faut de vous</span><span class="brand">Kairos</span></div>
+    <div class="s-title">Trois réponses avant le 26 octobre.</div>
+    <div class="hr"></div>
+  </div>
+  <div class="s-body">
+    <div class="grid3" style="flex:1;">
+      <div class="card">
+        <div class="stat" style="font-size:34px;color:var(--ochre);">01</div>
+        <div class="c-lab" style="color:var(--ochre);margin-top:12px;">Faisabilité</div>
+        <div class="c-body" style="color:var(--cream);">Pouvez-vous, en ≤ 6 h le Jour 1, produire un signal directionnel daté, avec des entrées d'avant-événement et un lead positif ?</div>
+      </div>
+      <div class="card">
+        <div class="stat" style="font-size:34px;color:var(--ochre);">02</div>
+        <div class="c-lab" style="color:var(--ochre);margin-top:12px;">Adoption</div>
+        <div class="c-body" style="color:var(--cream);">Un analyste DAPSA ou Cadre Harmonisé acceptera-t-il de co-concevoir et co-signer ?</div>
+      </div>
+      <div class="card">
+        <div class="stat" style="font-size:34px;color:var(--ochre);">03</div>
+        <div class="c-lab" style="color:var(--ochre);margin-top:12px;">Intégrité</div>
+        <div class="c-body" style="color:var(--cream);">Acceptez-vous de publier des bandes, de rapporter les métriques LOYO défavorables, et d'abandonner « reproduire l'USDA » ?</div>
+      </div>
+    </div>
+    <div class="tagbar" style="margin-top:22px;">8 conditions · Kill switch J1 · Fallback armé · Descope « reproduire l'USDA »</div>
+    <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted-2);margin-top:18px;border-top:1px solid var(--line);padding-top:12px;">
+      <span>Décision</span><span>Date : 26 octobre 2026</span>
+    </div>
+  </div>
+  <div class="s-foot"><span class="tag"><b>KAIROS</b> · Prévenir le déficit · Meta Global AI Developer Hackathon 2026</span><span>14 / 14</span></div>
+</section>
+
+</body>
+</html>

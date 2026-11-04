@@ -1,0 +1,320 @@
+{
+ "scene": "S2C_MSIL2A_20261018T113321_R080_T28QCD_20261018T145404",
+ "acquired": "2026-10-18",
+ "bboxLonLat": [
+  -16.28,
+  16.4,
+  -16.14,
+  16.54
+ ],
+ "pixelAreaHa": 0.0221,
+ "frame": [
+  1024,
+  1024
+ ],
+ "concepts": [
+  "muddy river",
+  "plowed field",
+  "green field",
+  "wetland",
+  "bare sand",
+  "pond",
+  "narrow stream",
+  "yellow river",
+  "brown farmland",
+  "green vegetation",
+  "white dune",
+  "dark water",
+  "pale soil",
+  "yellow creek",
+  "brown plots",
+  "green swamp",
+  "yellow sand",
+  "black lakes",
+  "winding creek",
+  "green squares",
+  "brown village"
+ ],
+ "rounds": [
+  {
+   "proposed": [
+    "muddy river",
+    "plowed field",
+    "green field",
+    "wetland",
+    "bare sand",
+    "pond",
+    "narrow stream"
+   ],
+   "failedBefore": []
+  },
+  {
+   "proposed": [
+    "yellow river",
+    "brown farmland",
+    "green vegetation",
+    "white dune",
+    "dark water",
+    "pale soil",
+    "yellow creek"
+   ],
+   "failedBefore": [
+    "muddy river",
+    "plowed field",
+    "green field",
+    "wetland",
+    "bare sand",
+    "pond",
+    "narrow stream"
+   ]
+  },
+  {
+   "proposed": [
+    "brown plots",
+    "green swamp",
+    "yellow sand",
+    "black lakes",
+    "winding creek",
+    "green squares",
+    "brown village"
+   ],
+   "failedBefore": [
+    "muddy river",
+    "plowed field",
+    "green field",
+    "wetland",
+    "bare sand",
+    "pond",
+    "narrow stream",
+    "brown farmland",
+    "green vegetation",
+    "white dune",
+    "dark water",
+    "pale soil"
+   ]
+  }
+ ],
+ "results": [
+  {
+   "concept": "muddy river",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "plowed field",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "green field",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "wetland",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "bare sand",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "pond",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "narrow stream",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "yellow river",
+   "instances": [
+    {
+     "box": [
+      0,
+      0,
+      884,
+      446
+     ],
+     "confidence": 0.7887788414955139
+    }
+   ],
+   "areaHa": 684.9,
+   "shareOfScene": 0.0296,
+   "shareWater": 0.0,
+   "iouWater": 0.0,
+   "landCoverShares": {
+    "permanent water": 0.916,
+    "herbaceous wetland": 0.084
+   },
+   "landCoverCoverage": {
+    "permanent water": 0.572,
+    "herbaceous wetland": 0.005
+   },
+   "overlay": "/sam/seg-7.png"
+  },
+  {
+   "concept": "brown farmland",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "green vegetation",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "white dune",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "dark water",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "pale soil",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "yellow creek",
+   "instances": [
+    {
+     "box": [
+      0,
+      845,
+      244,
+      966
+     ],
+     "confidence": 0.5704697966575623
+    },
+    {
+     "box": [
+      0,
+      0,
+      884,
+      446
+     ],
+     "confidence": 0.7575758099555969
+    }
+   ],
+   "areaHa": 797.6,
+   "shareOfScene": 0.0345,
+   "shareWater": 0.049,
+   "iouWater": 0.023,
+   "landCoverShares": {
+    "permanent water": 0.8,
+    "herbaceous wetland": 0.134,
+    "cropland": 0.065
+   },
+   "landCoverCoverage": {
+    "cropland": 0.007,
+    "permanent water": 0.582,
+    "herbaceous wetland": 0.01
+   },
+   "overlay": "/sam/seg-13.png"
+  },
+  {
+   "concept": "brown plots",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "green swamp",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "yellow sand",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "black lakes",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "winding creek",
+   "instances": [
+    {
+     "box": [
+      0,
+      0,
+      884,
+      447
+     ],
+     "confidence": 0.5816993117332458
+    }
+   ],
+   "areaHa": 714.9,
+   "shareOfScene": 0.0309,
+   "shareWater": 0.0,
+   "iouWater": 0.0,
+   "landCoverShares": {
+    "permanent water": 0.884,
+    "herbaceous wetland": 0.116
+   },
+   "landCoverCoverage": {
+    "permanent water": 0.576,
+    "herbaceous wetland": 0.008
+   },
+   "overlay": "/sam/seg-18.png"
+  },
+  {
+   "concept": "green squares",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  },
+  {
+   "concept": "brown village",
+   "instances": [],
+   "areaHa": 0.0,
+   "shareOfScene": 0.0
+  }
+ ],
+ "references": {
+  "waterHaNDWI": 919.7,
+  "landCoverHaWorldCover": {
+   "tree cover": 21.6,
+   "shrubland": 165.3,
+   "grassland": 2876.0,
+   "cropland": 7064.9,
+   "built-up": 14.2,
+   "bare / sparse vegetation": 1221.3,
+   "permanent water": 1096.1,
+   "herbaceous wetland": 10675.5,
+   "mangroves": 0.0
+  },
+  "clearShare": 0.999
+ },
+ "models": {
+  "concepts": "muse-spark-1.3 (vision)",
+  "segmentation": "sam-3.1"
+ },
+ "attribution": "Contains modified Copernicus Sentinel data 2026 (Sentinel-2 L2A, via Microsoft Planetary Computer).",
+ "note": "Les concepts viennent de Muse Spark, les masques de SAM 3.1 ; surfaces et recoupements sont calculés par le code. Aucune validation sur le terrain : un recoupement avec le NDWI ou WorldCover n'est pas une mesure d'exactitude."
+}

@@ -1,0 +1,13 @@
+{
+  "content": "J'interroge les données FAOSTAT pour les importations nettes de riz.",
+  "tool_calls": [
+    {
+      "id": "call_da42e87e-767e-40dc-9f71-13798dec7aa8",
+      "type": "function",
+      "function": {
+        "name": "get_forecast",
+        "arguments": "{}"
+      }
+    }
+  ]
+}

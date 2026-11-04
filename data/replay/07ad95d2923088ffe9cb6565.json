@@ -1,0 +1,4 @@
+{
+  "content": "L'extraction pour MY2025/26 retient 2000 pour la consommation, 1250 pour la production et 600 pour les importations, avec une contribution des stocks non publiée. L'outil signale un état insufficient_data avec la contribution nette des stocks comme donnée manquante, donc l'écart ne peut pas être calculé et la donnée absente n'est pas remplacée.",
+  "tool_calls": []
+}
